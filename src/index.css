@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'Manrope', sans-serif;
+    scroll-behavior: smooth;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.hero-title {
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+}
+
+.vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+}
+
+.neon-glow:hover {
+    box-shadow: 0 20px 50px -10px rgba(140, 43, 238, 0.4), 0 20px 50px -10px rgba(255, 107, 53, 0.3);
+}
+
+.gradient-border {
+    position: relative;
+}
+
+.gradient-border::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(to bottom right, #8c2bee, #ff6b35);
+    z-index: -1;
+    border-radius: inherit;
+}
