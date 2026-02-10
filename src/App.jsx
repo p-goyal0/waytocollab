@@ -1,4 +1,18 @@
 import { motion } from 'framer-motion';
+import {
+    Dna,
+    Workflow,
+    TrendingUp,
+    Wallet,
+    Feather,
+    Activity,
+    ArrowRight,
+    ChevronLeft,
+    ChevronRight,
+    Instagram,
+    Mail,
+    Globe
+} from 'lucide-react';
 import logo from './assets/WTC.png';
 
 function App() {
@@ -21,44 +35,39 @@ function App() {
 
             {/* Hero Section */}
             <header className="relative min-h-screen flex flex-col items-center justify-center pt-20 px-4 overflow-hidden">
+                {/* Quantum Field Background */}
+                <div className="absolute inset-0 opacity-20 pointer-events-none">
+                    <div className="absolute top-1/4 left-1/4 w-px h-32 bg-gradient-to-b from-transparent via-primary to-transparent animate-quantum-line" style={{ animationDelay: '0s' }}></div>
+                    <div className="absolute top-3/4 right-1/4 w-px h-24 bg-gradient-to-b from-transparent via-accent-orange to-transparent animate-quantum-line" style={{ animationDelay: '1.5s' }}></div>
+                    <div className="absolute top-1/2 left-1/2 w-px h-40 bg-gradient-to-b from-transparent via-primary to-transparent animate-quantum-line" style={{ animationDelay: '0.8s' }}></div>
+                </div>
+
                 <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/20 blur-[150px] rounded-full pointer-events-none"></div>
                 <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[300px] bg-accent-orange/10 blur-[120px] rounded-full pointer-events-none"></div>
+
                 <div className="max-w-6xl w-full text-center relative z-10">
-                    <span className="inline-block mb-8 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-bold uppercase tracking-widest">
+                    <div className="inline-flex items-center gap-2 mb-8 px-6 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-bold uppercase tracking-widest animate-badge-morph">
+                        <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
                         Redefining influence
-                    </span>
-                    <h1 className="hero-title text-5xl md:text-[6rem] font-extrabold mb-12 tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40 overflow-hidden">
-                        {"THE FUTURE OF CREATIVE PARTNERSHIPS".split(" ").map((word, wordIdx) => (
-                            <span key={wordIdx} className="inline-block whitespace-nowrap mr-[0.3em]">
-                                {word.split("").map((char, charIdx) => (
-                                    <motion.span
-                                        key={charIdx}
-                                        initial={{ y: "100%", opacity: 0 }}
-                                        animate={{ y: 0, opacity: 1 }}
-                                        transition={{
-                                            duration: 0.8,
-                                            delay: (wordIdx * 0.15) + (charIdx * 0.03),
-                                            ease: [0.33, 1, 0.68, 1]
-                                        }}
-                                        className="inline-block"
-                                    >
-                                        {char}
-                                    </motion.span>
-                                ))}
-                                {wordIdx === 1 || wordIdx === 3 ? <br /> : null}
-                            </span>
-                        ))}
+                    </div>
+
+                    <h1 className="text-5xl md:text-[6rem] font-extrabold mb-12 tracking-tighter text-white animate-magnetic-text leading-tight">
+                        <span className="block animate-text-reveal" style={{ animationDelay: '0.2s' }}>THE FUTURE OF</span>
+                        <span className="block bg-gradient-to-r from-primary to-accent-orange bg-clip-text text-transparent animate-text-reveal" style={{ animationDelay: '0.5s' }}>CREATIVE PARTNERSHIPS</span>
                     </h1>
-                    <p className="max-w-xl mx-auto text-lg md:text-xl opacity-60 font-light mb-12 leading-relaxed">
+
+                    <p className="max-w-xl mx-auto text-lg md:text-xl opacity-60 font-light mb-12 leading-relaxed animate-text-reveal" style={{ animationDelay: '0.8s' }}>
                         A new era for brands and creators. High-impact collaborations powered by a cardless, minimalist interface.
                     </p>
+
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                        <button className="group relative px-10 py-5 bg-gradient-to-r from-primary to-accent-orange rounded-full font-bold text-white transition-all hover:scale-105 active:scale-95 shadow-[0_0_40px_-10px_rgba(140,43,238,0.6)]">
-                            <span className="relative z-10 flex items-center gap-2">
-                                Get Started <span className="material-icons group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                        <button className="group relative px-10 py-5 bg-gradient-to-r from-primary to-accent-orange rounded-full font-bold text-white transition-all hover:scale-105 active:scale-95 shadow-[0_0_40px_-10px_rgba(140,43,238,0.6)] animate-liquid-morph overflow-hidden">
+                            <span className="relative z-10 flex items-center justify-center gap-2">
+                                Get Started <ArrowRight className="animate-rocket-launch transition-transform" size={20} />
                             </span>
                         </button>
-                        <button className="px-10 py-5 font-bold opacity-60 hover:opacity-100 transition-opacity underline decoration-primary underline-offset-8">
+                        <button className="group flex items-center gap-2 px-10 py-5 font-bold opacity-60 hover:opacity-100 transition-all underline decoration-primary underline-offset-8">
+                            <Activity className="animate-target-spin" size={20} />
                             View Showcase
                         </button>
                     </div>
@@ -66,7 +75,7 @@ function App() {
             </header>
 
             {/* How it Works Section */}
-            <section className="py-32 px-6 relative bg-graphite" id="how-it-works">
+            <section className="py-32 px-6 relative bg-background-dark" id="how-it-works">
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-20">
                     <div className="md:w-1/3">
                         <div className="sticky top-40">
@@ -84,12 +93,29 @@ function App() {
                             transition={{ duration: 0.8 }}
                             className="flex gap-12 items-start group"
                         >
-                            <div className="vertical-text text-8xl font-black text-transparent stroke-white/10 stroke-1 select-none opacity-20 group-hover:opacity-100 transition-opacity duration-700" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.2)' }}>
-                                CONNECT
+                            <div className="vertical-text text-8xl font-black text-transparent stroke-white/10 stroke-1 select-none opacity-40 group-hover:opacity-100 transition-opacity duration-700" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.4)' }}>
+                                {"CONNECT".split("").map((char, i) => (
+                                    <motion.span
+                                        key={i}
+                                        initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
+                                        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                                        viewport={{ once: true }}
+                                        transition={{
+                                            duration: 0.6,
+                                            delay: i * 0.08,
+                                            type: "spring",
+                                            damping: 12,
+                                            stiffness: 180
+                                        }}
+                                        className="inline-block"
+                                    >
+                                        {char}
+                                    </motion.span>
+                                ))}
                             </div>
                             <div className="pt-4">
                                 <div className="w-16 h-16 rounded-full border border-primary/40 flex items-center justify-center mb-8 group-hover:bg-primary/20 transition-colors">
-                                    <span className="material-icons text-primary text-3xl">hub</span>
+                                    <Dna className="text-primary" size={32} />
                                 </div>
                                 <h3 className="text-3xl font-bold mb-4">Discovery Engine</h3>
                                 <p className="text-xl opacity-60 leading-relaxed max-w-md overflow-hidden">
@@ -120,12 +146,29 @@ function App() {
                             transition={{ duration: 0.8, delay: 0.2 }}
                             className="flex gap-12 items-start group"
                         >
-                            <div className="vertical-text text-8xl font-black text-transparent stroke-white/10 stroke-1 select-none opacity-20 group-hover:opacity-100 transition-opacity duration-700" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.2)' }}>
-                                COLLABORATE
+                            <div className="vertical-text text-8xl font-black text-transparent stroke-white/10 stroke-1 select-none opacity-40 group-hover:opacity-100 transition-opacity duration-700" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.4)' }}>
+                                {"COLLABORATE".split("").map((char, i) => (
+                                    <motion.span
+                                        key={i}
+                                        initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
+                                        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                                        viewport={{ once: true }}
+                                        transition={{
+                                            duration: 0.6,
+                                            delay: i * 0.08,
+                                            type: "spring",
+                                            damping: 12,
+                                            stiffness: 180
+                                        }}
+                                        className="inline-block"
+                                    >
+                                        {char}
+                                    </motion.span>
+                                ))}
                             </div>
                             <div className="pt-4">
                                 <div className="w-16 h-16 rounded-full border border-accent-orange/40 flex items-center justify-center mb-8 group-hover:bg-accent-orange/20 transition-colors">
-                                    <span className="material-icons text-accent-orange text-3xl">auto_fix_high</span>
+                                    <Workflow className="text-accent-orange" size={32} />
                                 </div>
                                 <h3 className="text-3xl font-bold mb-4">Unified Workspace</h3>
                                 <p className="text-xl opacity-60 leading-relaxed max-w-md overflow-hidden">
@@ -156,12 +199,29 @@ function App() {
                             transition={{ duration: 0.8, delay: 0.4 }}
                             className="flex gap-12 items-start group"
                         >
-                            <div className="vertical-text text-8xl font-black text-transparent stroke-white/10 stroke-1 select-none opacity-20 group-hover:opacity-100 transition-opacity duration-700" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.2)' }}>
-                                SCALE
+                            <div className="vertical-text text-8xl font-black text-transparent stroke-white/10 stroke-1 select-none opacity-40 group-hover:opacity-100 transition-opacity duration-700" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.4)' }}>
+                                {"SCALE".split("").map((char, i) => (
+                                    <motion.span
+                                        key={i}
+                                        initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
+                                        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                                        viewport={{ once: true }}
+                                        transition={{
+                                            duration: 0.6,
+                                            delay: i * 0.08,
+                                            type: "spring",
+                                            damping: 12,
+                                            stiffness: 180
+                                        }}
+                                        className="inline-block"
+                                    >
+                                        {char}
+                                    </motion.span>
+                                ))}
                             </div>
                             <div className="pt-4">
                                 <div className="w-16 h-16 rounded-full border border-primary/40 flex items-center justify-center mb-8 group-hover:bg-primary/20 transition-colors">
-                                    <span className="material-icons text-primary text-3xl">analytics</span>
+                                    <TrendingUp className="text-primary" size={32} />
                                 </div>
                                 <h3 className="text-3xl font-bold mb-4">Real-time Growth</h3>
                                 <p className="text-xl opacity-60 leading-relaxed max-w-md overflow-hidden">
@@ -211,7 +271,7 @@ function App() {
                             className="glass-card neon-glow rounded-xl p-10 transition-all duration-500 hover:-translate-y-2 border border-white/5"
                         >
                             <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-8">
-                                <span className="material-icons text-primary">payments</span>
+                                <Wallet className="text-primary" size={24} />
                             </div>
                             <h4 className="text-2xl font-bold mb-4">Seamless Payments</h4>
                             <p className="opacity-60 leading-relaxed mb-8">Instant payouts with zero hidden fees. Automated invoicing and tax compliance built-in.</p>
@@ -229,7 +289,7 @@ function App() {
                             className="glass-card neon-glow rounded-xl p-10 transition-all duration-500 hover:-translate-y-2 border border-white/5"
                         >
                             <div className="w-12 h-12 bg-accent-orange/20 rounded-lg flex items-center justify-center mb-8">
-                                <span className="material-icons text-accent-orange">diversity_2</span>
+                                <Feather className="text-accent-orange" size={24} />
                             </div>
                             <h4 className="text-2xl font-bold mb-4">Creative Freedom</h4>
                             <p className="opacity-60 leading-relaxed mb-8">Direct communication lines without the agency middleman. Your vision, your rules, our platform.</p>
@@ -247,7 +307,7 @@ function App() {
                             className="glass-card neon-glow rounded-xl p-10 transition-all duration-500 hover:-translate-y-2 border border-white/5"
                         >
                             <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-8">
-                                <span className="material-icons text-primary">bar_chart</span>
+                                <Activity className="text-primary" size={24} />
                             </div>
                             <h4 className="text-2xl font-bold mb-4">Real-time Insights</h4>
                             <p className="opacity-60 leading-relaxed mb-8">Deep analytics on every collaboration. Understand engagement, sentiment, and ROI in seconds.</p>
@@ -261,7 +321,7 @@ function App() {
             </section>
 
             {/* Trust Section */}
-            <section className="py-32 px-6 bg-graphite overflow-hidden" id="testimonials">
+            <section className="py-32 px-6 bg-background-dark overflow-hidden" id="testimonials">
                 <div className="max-w-7xl mx-auto">
                     <div className="flex flex-col md:flex-row items-end justify-between mb-24 gap-8">
                         <div className="max-w-2xl">
@@ -270,10 +330,10 @@ function App() {
                         </div>
                         <div className="flex gap-4">
                             <button className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors">
-                                <span className="material-icons">chevron_left</span>
+                                <ChevronLeft size={24} />
                             </button>
                             <button className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors">
-                                <span className="material-icons">chevron_right</span>
+                                <ChevronRight size={24} />
                             </button>
                         </div>
                     </div>
@@ -366,7 +426,7 @@ function App() {
                                 <div className="relative">
                                     <input className="w-full bg-white/5 border-none rounded-full py-3 px-6 text-sm focus:ring-2 focus:ring-primary outline-none" placeholder="Email address" type="email" />
                                     <button className="absolute right-1 top-1 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-                                        <span className="material-icons text-white text-xs">arrow_forward</span>
+                                        <ArrowRight className="text-white" size={16} />
                                     </button>
                                 </div>
                             </div>
@@ -375,9 +435,9 @@ function App() {
                     <div className="flex flex-col md:flex-row justify-between items-center pt-10 border-t border-white/5 gap-6">
                         <p className="opacity-30 text-xs tracking-widest uppercase">© 2024 WAYTOCOLLAB Technologies Inc. All rights reserved.</p>
                         <div className="flex gap-8 opacity-40">
-                            <a className="hover:text-primary transition-colors" href="#"><span className="material-icons text-xl">camera_alt</span></a>
-                            <a className="hover:text-primary transition-colors" href="#"><span className="material-icons text-xl">alternate_email</span></a>
-                            <a className="hover:text-primary transition-colors" href="#"><span className="material-icons text-xl">public</span></a>
+                            <a className="hover:text-primary transition-colors" href="#"><Instagram size={20} /></a>
+                            <a className="hover:text-primary transition-colors" href="#"><Mail size={20} /></a>
+                            <a className="hover:text-primary transition-colors" href="#"><Globe size={20} /></a>
                         </div>
                     </div>
                 </div>
