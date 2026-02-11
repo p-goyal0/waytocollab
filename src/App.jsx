@@ -8,29 +8,48 @@ import {
     Activity,
     ArrowRight,
     ChevronLeft,
-    ChevronRight,
-    Instagram,
-    Mail,
-    Globe
+    ChevronRight
 } from 'lucide-react';
-import logo from './assets/WTC.png';
+import logo from './assets/logo.png';
+import SocialLinks from './SocialLinks';
 
 function App() {
     return (
         <div className="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 selection:bg-primary/30">
             {/* Navigation */}
-            <nav className="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center transition-all duration-500 backdrop-blur-md bg-background-dark/20">
+            <nav className="fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center transition-all duration-500 backdrop-blur-2xl bg-background-dark/40 border-b border-white/5">
                 <div className="flex items-center gap-2">
                     <img src={logo} alt="WAYTOCOLLAB Logo" className="h-10 w-auto" />
                 </div>
-                <div className="hidden md:flex gap-10 text-sm font-medium tracking-wide uppercase opacity-80">
-                    <a className="hover:text-primary transition-colors" href="#how-it-works">Process</a>
-                    <a className="hover:text-primary transition-colors" href="#benefits">Benefits</a>
-                    <a className="hover:text-primary transition-colors" href="#testimonials">Testimonials</a>
+                <div className="hidden md:flex ml-auto gap-12 text-base font-semibold tracking-wide uppercase opacity-80">
+                    <a
+                        className="relative group hover:text-primary transition-colors"
+                        href="#how-it-works"
+                    >
+                        Process
+                        <span className="pointer-events-none absolute -bottom-1 left-0 right-0 h-0.5 overflow-hidden">
+                            <span className="block w-full h-full bg-gradient-to-r from-transparent via-primary to-transparent transform scale-x-0 origin-center transition-transform duration-300 group-hover:scale-x-100" />
+                        </span>
+                    </a>
+                    <a
+                        className="relative group hover:text-primary transition-colors"
+                        href="#benefits"
+                    >
+                        Benefits
+                        <span className="pointer-events-none absolute -bottom-1 left-0 right-0 h-0.5 overflow-hidden">
+                            <span className="block w-full h-full bg-gradient-to-r from-transparent via-primary to-transparent transform scale-x-0 origin-center transition-transform duration-300 group-hover:scale-x-100" />
+                        </span>
+                    </a>
+                    <a
+                        className="relative group hover:text-primary transition-colors"
+                        href="#testimonials"
+                    >
+                        Testimonials
+                        <span className="pointer-events-none absolute -bottom-1 left-0 right-0 h-0.5 overflow-hidden">
+                            <span className="block w-full h-full bg-gradient-to-r from-transparent via-primary to-transparent transform scale-x-0 origin-center transition-transform duration-300 group-hover:scale-x-100" />
+                        </span>
+                    </a>
                 </div>
-                <button className="bg-primary/10 border border-primary/20 hover:bg-primary transition-all px-6 py-2 rounded-full font-semibold text-sm">
-                    Launch Platform
-                </button>
             </nav>
 
             {/* Hero Section */}
@@ -74,6 +93,47 @@ function App() {
                 </div>
             </header>
 
+            {/* Proof of Value Strip */}
+            <section className="py-24 md:py-32 px-6 md:px-8 bg-background-dark relative overflow-hidden border-t border-white/5">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-24">
+                    <div className="relative group">
+                        <div className="text-7xl md:text-8xl font-black opacity-10 absolute -top-6 -left-2 md:-top-10 md:-left-6 group-hover:opacity-20 transition-opacity duration-300">
+                            01
+                        </div>
+                        <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 relative z-10">
+                            Proof of Value
+                        </h3>
+                        <p className="opacity-40 leading-relaxed text-sm md:text-base max-w-xs">
+                            Every collaboration starts with a defined outcome. No more guessing games on ROI.
+                        </p>
+                    </div>
+
+                    <div className="relative group">
+                        <div className="text-7xl md:text-8xl font-black opacity-10 absolute -top-6 -left-2 md:-top-10 md:-left-6 group-hover:opacity-20 transition-opacity duration-300">
+                            02
+                        </div>
+                        <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 relative z-10">
+                            Escrow Assurance
+                        </h3>
+                        <p className="opacity-40 leading-relaxed text-sm md:text-base max-w-xs">
+                            Financial commitments are secured up-front, releasing only when milestones are met.
+                        </p>
+                    </div>
+
+                    <div className="relative group">
+                        <div className="text-7xl md:text-8xl font-black opacity-10 absolute -top-6 -left-2 md:-top-10 md:-left-6 group-hover:opacity-20 transition-opacity duration-300">
+                            03
+                        </div>
+                        <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 relative z-10">
+                            Verified Network
+                        </h3>
+                        <p className="opacity-40 leading-relaxed text-sm md:text-base max-w-xs">
+                            A curated ecosystem of creators and brands who value integrity over volume.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
             {/* How it Works Section */}
             <section className="py-32 px-6 relative bg-background-dark" id="how-it-works">
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-20">
@@ -93,27 +153,45 @@ function App() {
                             transition={{ duration: 0.8 }}
                             className="flex gap-12 items-start group"
                         >
-                            <div className="vertical-text text-8xl font-black text-transparent stroke-white/10 stroke-1 select-none opacity-40 group-hover:opacity-100 transition-opacity duration-700" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.4)' }}>
-                                {"CONNECT".split("").map((char, i) => (
-                                    <motion.span
-                                        key={i}
-                                        initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
-                                        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                                        viewport={{ once: true }}
-                                        transition={{
-                                            duration: 0.6,
-                                            delay: i * 0.08,
-                                            type: "spring",
-                                            damping: 12,
-                                            stiffness: 180
-                                        }}
-                                        className="inline-block"
-                                    >
-                                        {char}
-                                    </motion.span>
-                                ))}
-                            </div>
                             <div className="pt-4">
+                                <div className="mb-6 relative" style={{ perspective: '1200px' }}>
+                                    <motion.div
+                                        className="text-5xl md:text-7xl font-black text-transparent stroke-white/10 stroke-1 select-none opacity-30 group-hover:opacity-80 transition-opacity duration-700 tracking-[0.35em]"
+                                        style={{
+                                            WebkitTextStroke: '1px rgba(255,255,255,0.4)',
+                                            transformStyle: 'preserve-3d'
+                                        }}
+                                        whileHover={{
+                                            rotateY: [0, 18, -18, 0],
+                                            rotateX: [0, -8, 8, 0],
+                                        }}
+                                        transition={{
+                                            duration: 1.2,
+                                            repeat: Infinity,
+                                            repeatType: 'reverse',
+                                            ease: 'easeInOut'
+                                        }}
+                                    >
+                                        {"CONNECT".split("").map((char, i) => (
+                                            <motion.span
+                                                key={i}
+                                                initial={{ opacity: 0, x: 80, filter: "blur(10px)" }}
+                                                whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                                                viewport={{ once: true }}
+                                                transition={{
+                                                    duration: 0.6,
+                                                    delay: i * 0.06,
+                                                    type: "spring",
+                                                    damping: 14,
+                                                    stiffness: 220
+                                                }}
+                                                className="inline-block"
+                                            >
+                                                {char}
+                                            </motion.span>
+                                        ))}
+                                    </motion.div>
+                                </div>
                                 <div className="w-16 h-16 rounded-full border border-primary/40 flex items-center justify-center mb-8 group-hover:bg-primary/20 transition-colors">
                                     <Dna className="text-primary" size={32} />
                                 </div>
@@ -146,27 +224,45 @@ function App() {
                             transition={{ duration: 0.8, delay: 0.2 }}
                             className="flex gap-12 items-start group"
                         >
-                            <div className="vertical-text text-8xl font-black text-transparent stroke-white/10 stroke-1 select-none opacity-40 group-hover:opacity-100 transition-opacity duration-700" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.4)' }}>
-                                {"COLLABORATE".split("").map((char, i) => (
-                                    <motion.span
-                                        key={i}
-                                        initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
-                                        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                                        viewport={{ once: true }}
-                                        transition={{
-                                            duration: 0.6,
-                                            delay: i * 0.08,
-                                            type: "spring",
-                                            damping: 12,
-                                            stiffness: 180
-                                        }}
-                                        className="inline-block"
-                                    >
-                                        {char}
-                                    </motion.span>
-                                ))}
-                            </div>
                             <div className="pt-4">
+                                <div className="mb-6 relative" style={{ perspective: '1200px' }}>
+                                    <motion.div
+                                        className="text-5xl md:text-7xl font-black text-transparent stroke-white/10 stroke-1 select-none opacity-30 group-hover:opacity-80 transition-opacity duration-700 tracking-[0.35em]"
+                                        style={{
+                                            WebkitTextStroke: '1px rgba(255,255,255,0.4)',
+                                            transformStyle: 'preserve-3d'
+                                        }}
+                                        whileHover={{
+                                            rotateY: [0, 18, -18, 0],
+                                            rotateX: [0, -8, 8, 0],
+                                        }}
+                                        transition={{
+                                            duration: 1.2,
+                                            repeat: Infinity,
+                                            repeatType: 'reverse',
+                                            ease: 'easeInOut'
+                                        }}
+                                    >
+                                        {"COLLABORATE".split("").map((char, i) => (
+                                            <motion.span
+                                                key={i}
+                                                initial={{ opacity: 0, x: 80, filter: "blur(10px)" }}
+                                                whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                                                viewport={{ once: true }}
+                                                transition={{
+                                                    duration: 0.6,
+                                                    delay: i * 0.06,
+                                                    type: "spring",
+                                                    damping: 14,
+                                                    stiffness: 220
+                                                }}
+                                                className="inline-block"
+                                            >
+                                                {char}
+                                            </motion.span>
+                                        ))}
+                                    </motion.div>
+                                </div>
                                 <div className="w-16 h-16 rounded-full border border-accent-orange/40 flex items-center justify-center mb-8 group-hover:bg-accent-orange/20 transition-colors">
                                     <Workflow className="text-accent-orange" size={32} />
                                 </div>
@@ -199,27 +295,45 @@ function App() {
                             transition={{ duration: 0.8, delay: 0.4 }}
                             className="flex gap-12 items-start group"
                         >
-                            <div className="vertical-text text-8xl font-black text-transparent stroke-white/10 stroke-1 select-none opacity-40 group-hover:opacity-100 transition-opacity duration-700" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.4)' }}>
-                                {"SCALE".split("").map((char, i) => (
-                                    <motion.span
-                                        key={i}
-                                        initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
-                                        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                                        viewport={{ once: true }}
-                                        transition={{
-                                            duration: 0.6,
-                                            delay: i * 0.08,
-                                            type: "spring",
-                                            damping: 12,
-                                            stiffness: 180
-                                        }}
-                                        className="inline-block"
-                                    >
-                                        {char}
-                                    </motion.span>
-                                ))}
-                            </div>
                             <div className="pt-4">
+                                <div className="mb-6 relative" style={{ perspective: '1200px' }}>
+                                    <motion.div
+                                        className="text-5xl md:text-7xl font-black text-transparent stroke-white/10 stroke-1 select-none opacity-30 group-hover:opacity-80 transition-opacity duration-700 tracking-[0.35em]"
+                                        style={{
+                                            WebkitTextStroke: '1px rgba(255,255,255,0.4)',
+                                            transformStyle: 'preserve-3d'
+                                        }}
+                                        whileHover={{
+                                            rotateY: [0, 18, -18, 0],
+                                            rotateX: [0, -8, 8, 0],
+                                        }}
+                                        transition={{
+                                            duration: 1.2,
+                                            repeat: Infinity,
+                                            repeatType: 'reverse',
+                                            ease: 'easeInOut'
+                                        }}
+                                    >
+                                        {"SCALE".split("").map((char, i) => (
+                                            <motion.span
+                                                key={i}
+                                                initial={{ opacity: 0, x: 80, filter: "blur(10px)" }}
+                                                whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                                                viewport={{ once: true }}
+                                                transition={{
+                                                    duration: 0.6,
+                                                    delay: i * 0.06,
+                                                    type: "spring",
+                                                    damping: 14,
+                                                    stiffness: 220
+                                                }}
+                                                className="inline-block"
+                                            >
+                                                {char}
+                                            </motion.span>
+                                        ))}
+                                    </motion.div>
+                                </div>
                                 <div className="w-16 h-16 rounded-full border border-primary/40 flex items-center justify-center mb-8 group-hover:bg-primary/20 transition-colors">
                                     <TrendingUp className="text-primary" size={32} />
                                 </div>
@@ -248,151 +362,180 @@ function App() {
                 </div>
             </section>
 
-            {/* Benefits Section */}
-            <section className="py-32 px-6 bg-background-dark" id="benefits">
-                <div className="max-w-7xl mx-auto">
-                    <motion.div
-                        initial={{ opacity: 0, y: -40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ type: "spring", damping: 20, stiffness: 100 }}
-                        className="text-center mb-24"
-                    >
-                        <h2 className="text-4xl md:text-6xl font-extrabold mb-6">PREMIUM ADVANTAGE</h2>
-                        <p className="opacity-50 text-xl max-w-2xl mx-auto leading-relaxed">Elevate your creative operations with modules that work as hard as you do.</p>
-                    </motion.div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {/* Benefit 1 */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9, y: 30 }}
-                            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, ease: "circOut" }}
-                            className="glass-card neon-glow rounded-xl p-10 transition-all duration-500 hover:-translate-y-2 border border-white/5"
+            {/* Problem Section */}
+            <section className="min-h-screen pt-32 pb-24 px-6 md:px-10 flex flex-col justify-center relative overflow-hidden bg-background-dark">
+                <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/10 to-transparent pointer-events-none" />
+                <div className="max-w-6xl lg:max-w-7xl mx-auto w-full grid grid-cols-12 gap-0 relative">
+                    <div className="col-span-2 hidden md:flex justify-start items-center">
+                        <h2
+                            className="font-black uppercase leading-none opacity-70"
+                            style={{
+                                fontSize: '12vw',
+                                WebkitTextStroke: '1px rgba(255,255,255,0.4)',
+                                color: 'transparent',
+                                writingMode: 'vertical-rl',
+                                textOrientation: 'mixed',
+                                transform: 'rotate(180deg)',
+                            }}
                         >
-                            <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-8">
-                                <Wallet className="text-primary" size={24} />
+                            PROBLEM
+                        </h2>
+                    </div>
+                    <div className="col-span-12 md:col-span-10 grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 md:pl-12">
+                        {/* Creators column */}
+                        <div className="space-y-12 md:space-y-16">
+                            <div className="space-y-3 md:space-y-4">
+                                <span className="text-accent-orange text-xs font-bold tracking-[0.3em] uppercase">
+                                    For Creators
+                                </span>
+                                <h3 className="text-3xl md:text-5xl font-light tracking-tight">
+                                    The invisible labor of <br />
+                                    <span className="font-bold">unpaid effort.</span>
+                                </h3>
                             </div>
-                            <h4 className="text-2xl font-bold mb-4">Seamless Payments</h4>
-                            <p className="opacity-60 leading-relaxed mb-8">Instant payouts with zero hidden fees. Automated invoicing and tax compliance built-in.</p>
-                            <div className="w-full h-40 rounded-lg overflow-hidden relative">
-                                <img className="w-full h-full object-cover opacity-50" alt="Abstract sleek financial dashboard representation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgK4ujvKHRpukPucMaV1gKLQi4q_9GnpYYCOmCkkvQdIdck_jpqHrSsLQep6Oo4hhXpEzNQAyhzTIKmJAlP31WCtfZmRRYDHVQ09ny3bpmZXVtbVnHKQ33Sn5PzZS33Ipr44RkhFx6Yok4HTd1T_qgu-kNiZs9T1Di4braVmkra7bRmnTppYzFlpKMi9bLG-xDBH_nPpSAbTKgkbnvZZ4dNkVD07sezMJjghXdc3Wfy0S_yQ589o9rqx7auaj_qfIipBW8AjQXnZdn" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-background-dark to-transparent"></div>
+                            <ul className="space-y-10 md:space-y-12">
+                                <li className="flex gap-6 md:gap-8 group">
+                                    <span className="text-white/20 text-3xl md:text-4xl font-light">01</span>
+                                    <div>
+                                        <h4 className="text-lg md:text-xl font-bold mb-2 md:mb-3 group-hover:text-accent-orange transition-colors">
+                                            Ghosting Culture
+                                        </h4>
+                                        <p className="text-white/50 leading-relaxed font-light text-base md:text-lg">
+                                            Weeks of creative briefing and sample production ending in silence and zero compensation.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li className="flex gap-6 md:gap-8 group">
+                                    <span className="text-white/20 text-3xl md:text-4xl font-light">02</span>
+                                    <div>
+                                        <h4 className="text-lg md:text-xl font-bold mb-2 md:mb-3 group-hover:text-accent-orange transition-colors">
+                                            Fragmented Payments
+                                        </h4>
+                                        <p className="text-white/50 leading-relaxed font-light text-base md:text-lg">
+                                            Chasing invoices across multiple platforms with opaque fee structures and 90-day delays.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li className="flex gap-6 md:gap-8 group">
+                                    <span className="text-white/20 text-3xl md:text-4xl font-light">03</span>
+                                    <div>
+                                        <h4 className="text-lg md:text-xl font-bold mb-2 md:mb-3 group-hover:text-accent-orange transition-colors">
+                                            Creative Misalignment
+                                        </h4>
+                                        <p className="text-white/50 leading-relaxed font-light text-base md:text-lg">
+                                            Vague briefs that lead to endless revisions and soul-crushing "aesthetic" disputes.
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        {/* Brands column */}
+                        <div className="space-y-12 md:space-y-16">
+                            <div className="space-y-3 md:space-y-4">
+                                <span className="text-primary text-xs font-bold tracking-[0.3em] uppercase">
+                                    For Brands
+                                </span>
+                                <h3 className="text-3xl md:text-5xl font-light tracking-tight">
+                                    The high cost of <br />
+                                    <span className="font-bold">unclear results.</span>
+                                </h3>
                             </div>
-                        </motion.div>
-                        {/* Benefit 2 */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9, y: 30 }}
-                            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: 0.2, ease: "circOut" }}
-                            className="glass-card neon-glow rounded-xl p-10 transition-all duration-500 hover:-translate-y-2 border border-white/5"
-                        >
-                            <div className="w-12 h-12 bg-accent-orange/20 rounded-lg flex items-center justify-center mb-8">
-                                <Feather className="text-accent-orange" size={24} />
-                            </div>
-                            <h4 className="text-2xl font-bold mb-4">Creative Freedom</h4>
-                            <p className="opacity-60 leading-relaxed mb-8">Direct communication lines without the agency middleman. Your vision, your rules, our platform.</p>
-                            <div className="w-full h-40 rounded-lg overflow-hidden relative">
-                                <img className="w-full h-full object-cover opacity-50" alt="Abstract colorful neon technology wires" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADWWl-c2s9PjA_W0fp-luBkXUAe2Go48NLZBUOLrPf3qp-E5WDig8VCcepVyqmmOt8eoKM22pbo4wZh600IfJlxsBj-k3d1jww_c7SC_vt6sO4ydRKSj2yiKgFHVcf5Ema_-7lgdZFhPcTCajvNdgLOpMKRuSvAaWZaAg1c0YBmHnHVtsOKzQD_yOYkqiqcITUnRAki3bv0kG8cH53KqWYnczVJcHb-RjUG52qBGSitITjHhG2MGOnjyq6FKLIzwFeppmz9Q78ISuJ" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-background-dark to-transparent"></div>
-                            </div>
-                        </motion.div>
-                        {/* Benefit 3 */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9, y: 30 }}
-                            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: 0.4, ease: "circOut" }}
-                            className="glass-card neon-glow rounded-xl p-10 transition-all duration-500 hover:-translate-y-2 border border-white/5"
-                        >
-                            <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-8">
-                                <Activity className="text-primary" size={24} />
-                            </div>
-                            <h4 className="text-2xl font-bold mb-4">Real-time Insights</h4>
-                            <p className="opacity-60 leading-relaxed mb-8">Deep analytics on every collaboration. Understand engagement, sentiment, and ROI in seconds.</p>
-                            <div className="w-full h-40 rounded-lg overflow-hidden relative">
-                                <img className="w-full h-full object-cover opacity-50" alt="Abstract data visualization with purple glowing lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgN5sX-FeoPu4fH0bxmvCMQrTY4TGXi-PLXIpWUMuHxWrObCthtY6UwRFEPIITNbBJaTsCrrTxVjcZsrqWMyWc7UCriO2XKVK_BSyJXl9nqYGrBIzZu3oSGXIuu8ixD5nTjIrwc9whtzuoJZgv-YQl6VCla0q9ec7-knl-v0Dzu4J6mBl_YDwA-0pyjdry9FX7-R5FE8QFpqiHdMY-lBdpV9GSCK8y9h5olqoPiJC30MMNrWq76UsWxbCaNf4cgJ-q4wvFVCzBwpnL" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-background-dark to-transparent"></div>
-                            </div>
-                        </motion.div>
+                            <ul className="space-y-10 md:space-y-12">
+                                <li className="flex gap-6 md:gap-8 group">
+                                    <span className="text-white/20 text-3xl md:text-4xl font-light">01</span>
+                                    <div>
+                                        <h4 className="text-lg md:text-xl font-bold mb-2 md:mb-3 group-hover:text-primary transition-colors">
+                                            Vanity Blindness
+                                        </h4>
+                                        <p className="text-white/50 leading-relaxed font-light text-base md:text-lg">
+                                            Spending millions on high-follower accounts that fail to convert into meaningful brand equity.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li className="flex gap-6 md:gap-8 group">
+                                    <span className="text-white/20 text-3xl md:text-4xl font-light">02</span>
+                                    <div>
+                                        <h4 className="text-lg md:text-xl font-bold mb-2 md:mb-3 group-hover:text-primary transition-colors">
+                                            Operational Chaos
+                                        </h4>
+                                        <p className="text-white/50 leading-relaxed font-light text-base md:text-lg">
+                                            Manual spreadsheets, lost email threads, and zero centralized oversight on active campaigns.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li className="flex gap-6 md:gap-8 group">
+                                    <span className="text-white/20 text-3xl md:text-4xl font-light">03</span>
+                                    <div>
+                                        <h4 className="text-lg md:text-xl font-bold mb-2 md:mb-3 group-hover:text-primary transition-colors">
+                                            Lack of Intent
+                                        </h4>
+                                        <p className="text-white/50 leading-relaxed font-light text-base md:text-lg">
+                                            Treating creators as ad slots rather than strategic partners, killing authentic audience trust.
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* Trust Section */}
-            <section className="py-32 px-6 bg-background-dark overflow-hidden" id="testimonials">
-                <div className="max-w-7xl mx-auto">
-                    <div className="flex flex-col md:flex-row items-end justify-between mb-24 gap-8">
-                        <div className="max-w-2xl">
-                            <h2 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">PARTNERING WITH THE BEST</h2>
-                            <p className="opacity-50 text-xl">Trusted by over 500+ global brands and creators.</p>
-                        </div>
-                        <div className="flex gap-4">
-                            <button className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors">
-                                <ChevronLeft size={24} />
-                            </button>
-                            <button className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors">
-                                <ChevronRight size={24} />
-                            </button>
-                        </div>
-                    </div>
-                    {/* Brand Logos Grid */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-32 opacity-30">
-                        <div className="h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all cursor-pointer">
-                            <img className="h-full object-contain" alt="Minimalist company logo 1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKIXzPfGdx_VkzAiwh4hyeGeQhdmHGo57GdlrOskjI4nPHL8Y2X_j2Grnz6CtP1TTCLu621SXiKU5DGmB813SUrU9ptaKs2b3g-YRGgRSlior90rap7a2b1CsiWm1Wjc6N9hCpLsCcH3AQ0NXWA_99QHBJM1kQLSZUuF27fQTsaTDEvm6g0BrHUP-KBza6FIS-_fpBKVpwmRQckNFDpVxetD1axwmU4INc3lavNFBl7qG3LfHHDvpIEUT4gf_rQJ7kLs6jYFNUW1rD" />
-                        </div>
-                        <div className="h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all cursor-pointer">
-                            <img className="h-full object-contain" alt="Minimalist company logo 2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5hUsokaTCf6eGaVyQlGcPF-_w6gbDoX95_IHu_09SnqjTYmNMdKY3-T4EYhDvAsuxA8gaXCl-04RsONyU3bHR3Y8eRNvVLAZWxtamyeXxDaezfFIMx9dfKhPXKC2zAlT4_2uWU3EaiTZyoI4yLezrfN4DtwwKXS_7g8f4gg9gSdZu4xRriaMr-1YZCYAb-Zer46tH7ngRrcqcmNizmOPz3rloWlHbjzSM4SAlcipqEtWypk7gYPdbNMBqG42vP_prfUQOl_EIr9IQ" />
-                        </div>
-                        <div className="h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all cursor-pointer">
-                            <img className="h-full object-contain" alt="Minimalist company logo 3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbdDD0VQ9cBGaw5cg7f-KxwkBbRBy0YvLbQX7Y2Rpb19ZVgOGpCqhQLyuMW1DWjolpLia_LD8x7g9hqWZdc36b9E2b_3JgNzdeGXN_o6e0BjUe_eTluGa7JQnmRi89gs6f__0zwXrogSgxbMqXqFFfudEEcB_mXSZqMfxyevrwUVMa4cMv7LGmqLht-VWoCoFu_1dtpz7WgdJIWLDlakEcMLWjXTPCPZXERolOD5zrbio_5yT0c9TH30iFipxRE0e0D0sTHhAM8_2s" />
-                        </div>
-                        <div className="h-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all cursor-pointer">
-                            <img className="h-full object-contain" alt="Minimalist company logo 4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAleWMzD_ktvPAtiveaHazj0besvfmvISPPU80K1m1IXLubxLraQC71SIhX7HrHt9O8GSlO3xBihcEqU7Cve9duiRqq14EVmION0xe2VYq7dqJSBiETA4TGTX7US-ANYRsuuMqfRONR2V0l0OgJhiVjazBIlbTKdgkdWjkllHzPgluZroWphDUiTuY3tysj4dZPdhGUTSxfR81s3PLx7pUPXNyX6VAxbs4BsRoYsx3Neukz2NM6qmi4nBLtl9cVfvnjCy3l1smbvP-Q" />
+            {/* Shift Section */}
+            <section className="min-h-screen py-32 md:py-40 px-6 md:px-10 bg-background-dark relative flex flex-col items-center justify-center text-center overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03]">
+                    <h2 className="text-[40vw] font-black uppercase tracking-tighter">SHIFT</h2>
+                </div>
+                <div className="relative z-10 max-w-5xl mx-auto">
+                    <span className="inline-block mb-10 md:mb-12 px-6 py-2 rounded-full border border-primary/30 bg-primary/5 text-primary text-[10px] font-bold uppercase tracking-[0.4em]">
+                        The Evolution
+                    </span>
+                    <h2 className="text-4xl md:text-6xl lg:text-8xl font-bold tracking-tight mb-12 md:mb-16 leading-[1.1]">
+                        Moving from <span className="opacity-30 italic font-light">Accidental</span> <br />
+                        to{' '}
+                        <span className="text-white relative inline-block">
+                            Intentional
+                            <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent-orange" />
+                        </span>{' '}
+                        Growth.
+                    </h2>
+                    <div className="p-[1px] rounded-3xl bg-gradient-to-b from-primary/40 to-transparent mb-16 md:mb-24 max-w-3xl mx-auto">
+                        <div className="bg-background-dark/80 backdrop-blur-xl rounded-[calc(1.5rem-1px)] p-10 md:p-16">
+                            <p className="text-2xl md:text-3xl lg:text-4xl font-medium leading-relaxed text-primary">
+                                WayToCollab adds structure to the creative spark, turning chaotic influence into measurable commercial intent.
+                            </p>
                         </div>
                     </div>
-                    {/* Testimonial Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                        <div className="space-y-6">
-                            <p className="text-2xl font-medium leading-snug">"The level of transparency on KREO is unmatched. We found our best creative partners in weeks."</p>
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 rounded-full overflow-hidden bg-primary/20">
-                                    <img className="w-full h-full object-cover" alt="Professional portrait of a brand manager" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBKYEOHurba-Z83_CkAOt0gFwy48D9QaBwMrtEBTfB7qlq0TsY6fYYls8d59E2H1NpBOOa4D1SV07fwMZFy1FgxPnrlZ_0R3AkFv-P1UMbg1zv5C9GsJk2WLFSWBigT3ax4tU2Ta01_nTqTRwrCkSyCT_snmXe6YRbWNphEtUEIugX3mNGA06bwhc20Z_SOgfgCrsJJiBFLqzmI-bbLlgSr9pusX9DPYOA5zx_wx8x3-zYZKAYHaHAIeyFhLseUZRXV_LLdilJgdIw" />
-                                </div>
-                                <div>
-                                    <p className="font-bold">Elena Vance</p>
-                                    <p className="text-xs uppercase tracking-widest opacity-40">Creative Lead, Lumina</p>
-                                </div>
-                            </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 text-left border-t border-white/5 pt-16 md:pt-20">
+                        <div>
+                            <h5 className="text-xs font-bold uppercase tracking-widest text-white/40 mb-3 md:mb-4">
+                                Structure
+                            </h5>
+                            <p className="text-base md:text-lg opacity-70 font-light">
+                                Defined milestones and automated contractual compliance for every single post.
+                            </p>
                         </div>
-                        <div className="space-y-6">
-                            <p className="text-2xl font-medium leading-snug">"As a creator, the minimalist workflow allows me to focus on my craft rather than administration."</p>
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 rounded-full overflow-hidden bg-accent-orange/20">
-                                    <img className="w-full h-full object-cover" alt="Portrait of a creative content creator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVLGCMku2RmSccjTZ16FQAUq1ATIlH9AxHZGkMrKZQClHnDamAW2ZLqH-P7GLoviWjFr_g3UtyYNOLMu-57TaFyyKBPu4T2loZUWXh2ckMFvyQ_VpRekfDAPHfsP9JtzfUKuy8zMHgODDpGFCmzzVeDp15ukAccB8w3MAguls6Y5KU7bgjaXK8_Qk6yo0gH-svasinfXFijE40XVB1_FMcBGugIp9RS_jTViG-zvZBBvU2dwOes4LbUVGQZxVxHJZOOqxTJuG_RKvX" />
-                                </div>
-                                <div>
-                                    <p className="font-bold">Marcus Thorne</p>
-                                    <p className="text-xs uppercase tracking-widest opacity-40">Visual Artist</p>
-                                </div>
-                            </div>
+                        <div>
+                            <h5 className="text-xs font-bold uppercase tracking-widest text-white/40 mb-3 md:mb-4">
+                                Transparency
+                            </h5>
+                            <p className="text-base md:text-lg opacity-70 font-light">
+                                Real-time financial tracking and proof-of-work validation before any fund release.
+                            </p>
                         </div>
-                        <div className="space-y-6">
-                            <p className="text-2xl font-medium leading-snug">"The predictive matching engine saved us hundreds of hours of manual searching. Simply brilliant."</p>
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 rounded-full overflow-hidden bg-primary/20">
-                                    <img className="w-full h-full object-cover" alt="Portrait of a technology executive" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgCiZpAroXDEA2_fgDCStPXROmHf2fKwPin_4xvzGiyfbnsH3S0RdnJhg9xqAB8F45kmJUW17qnIAJGTETgNZCJWw0tG3elzKdIR4rGamBQOVidJiuLYB-SD-MYUqSf-95KpjDRWl3YIx4veP2r0cvWknlG-gCTOU7c09FiLVtJ7sESkcZFdm02Bz3OM7nQ3rMKa6xu_zEKAMcfwhcr2-VeZu_RhPl-bOzJcYGKQaI4EEOf29yTU4-RYbzVF_L08uzNlPN9oQPoKvP" />
-                                </div>
-                                <div>
-                                    <p className="font-bold">Sarah Chen</p>
-                                    <p className="text-xs uppercase tracking-widest opacity-40">CEO, TechBound</p>
-                                </div>
-                            </div>
+                        <div>
+                            <h5 className="text-xs font-bold uppercase tracking-widest text-white/40 mb-3 md:mb-4">
+                                Alignment
+                            </h5>
+                            <p className="text-base md:text-lg opacity-70 font-light">
+                                Shared goals that ensure the creator&apos;s voice and the brand&apos;s objectives act as one.
+                            </p>
                         </div>
                     </div>
                 </div>
-            </section >
+                <div className="absolute -bottom-1/3 -left-1/3 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-primary/20 blur-[140px] rounded-full" />
+                <div className="absolute -top-1/3 -right-1/3 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-accent-orange/10 blur-[140px] rounded-full" />
+            </section>
 
             {/* Footer */}
             < footer className="py-20 px-6 border-t border-white/5 bg-background-dark" >
@@ -434,11 +577,7 @@ function App() {
                     </div>
                     <div className="flex flex-col md:flex-row justify-between items-center pt-10 border-t border-white/5 gap-6">
                         <p className="opacity-30 text-xs tracking-widest uppercase">© 2024 WAYTOCOLLAB Technologies Inc. All rights reserved.</p>
-                        <div className="flex gap-8 opacity-40">
-                            <a className="hover:text-primary transition-colors" href="#"><Instagram size={20} /></a>
-                            <a className="hover:text-primary transition-colors" href="#"><Mail size={20} /></a>
-                            <a className="hover:text-primary transition-colors" href="#"><Globe size={20} /></a>
-                        </div>
+                        <SocialLinks />
                     </div>
                 </div>
                 {/* Pulsing Purple Glow Decor */}
